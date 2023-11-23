@@ -18,17 +18,21 @@
                                     categories
                                 </a>
                                 <ul class="category-menu">
-                                    <li class="cat-item has-children">
-                                        <a href="#">Arts & Photography</a>
-                                        <ul class="sub-menu">
-                                            <li><a href="#">Bags & Cases</a></li>
-                                            <li><a href="#">Binoculars & Scopes</a></li>
-                                            <li><a href="#">Digital Cameras</a></li>
-                                            <li><a href="#">Film Photography</a></li>
-                                            <li><a href="#">Lighting & Studio</a></li>
-                                        </ul>
-                                    </li>
-                                    <li class="cat-item has-children mega-menu">
+                                    @* @foreach (var itemP in Model.categories.FindAll(c => c.ParentCategoryId == null))
+                                    {
+
+                                        <li class="cat-item has-children">
+                                            <a href="#">@itemP.Name</a>
+                                            <ul class="sub-menu">
+                                                @foreach (var item in Model.categories.FindAll(c => c.ParentCategoryId == itemP.Id))
+                                                {
+                                                    <li><a href="#">item.</a></li>
+
+                                                }
+                                            </ul>
+                                        </li>
+                                    } *@
+                                   @*  <li class="cat-item has-children mega-menu">
                                         <a href="#">Biographies</a>
                                         <ul class="sub-menu">
                                             <li class="single-block">
@@ -127,7 +131,7 @@
                                             More
                                             Categories
                                         </a>
-                                    </li>
+                                    </li> *@
                                 </ul>
                             </div>
                         </nav>
@@ -630,52 +634,52 @@
                             {"breakpoint":320, "settings": {"slidesToShow": 1} }
                         ]'>
 
-                              @foreach (var item in Model.books)
+                            @foreach (var item in Model.books)
                             {
-                                
-                            <div class="single-slide">
-                                <div class="product-card">
-                                    <div class="product-header">
-                                        <a href="#" class="author">
-                                            @item.Authors.Name
-                                        </a>
-                                        <h3>
-                                            <a href="product-details.html">
-                                                @item.Title
+
+                                <div class="single-slide">
+                                    <div class="product-card">
+                                        <div class="product-header">
+                                            <a href="#" class="author">
+                                                @item.Authors.Name
                                             </a>
-                                        </h3>
-                                    </div>
-                                    <div class="product-card--body">
-                                        <div class="card-image">
-                                            <img src="~/image/products/@item.ImgUrl" alt="">
-                                            <div class="hover-contents">
-                                                <a href="product-details.html" class="hover-image">
-                                                    <img src="~/image/products/@item.Bookimages" alt="">
+                                            <h3>
+                                                <a href="product-details.html">
+                                                    @item.Title
                                                 </a>
-                                                <div class="hover-btns">
-                                                    <a href="cart.html" class="single-btn">
-                                                        <i class="fas fa-shopping-basket"></i>
+                                            </h3>
+                                        </div>
+                                        <div class="product-card--body">
+                                            <div class="card-image">
+                                                <img src="~/image/products/@item.ImgUrl" alt="">
+                                                <div class="hover-contents">
+                                                    <a href="product-details.html" class="hover-image">
+                                                        <img src="~/image/products/@item.Bookimages" alt="">
                                                     </a>
-                                                    <a href="wishlist.html" class="single-btn">
-                                                        <i class="fas fa-heart"></i>
-                                                    </a>
-                                                    <a href="compare.html" class="single-btn">
-                                                        <i class="fas fa-random"></i>
-                                                    </a>
-                                                    <a href="#" data-toggle="modal" data-target="#quickModal"
-                                                       class="single-btn">
-                                                        <i class="fas fa-eye"></i>
-                                                    </a>
+                                                    <div class="hover-btns">
+                                                        <a href="cart.html" class="single-btn">
+                                                            <i class="fas fa-shopping-basket"></i>
+                                                        </a>
+                                                        <a href="wishlist.html" class="single-btn">
+                                                            <i class="fas fa-heart"></i>
+                                                        </a>
+                                                        <a href="compare.html" class="single-btn">
+                                                            <i class="fas fa-random"></i>
+                                                        </a>
+                                                        <a href="#" data-toggle="modal" data-target="#quickModal"
+                                                           class="single-btn">
+                                                            <i class="fas fa-eye"></i>
+                                                        </a>
+                                                    </div>
                                                 </div>
                                             </div>
-                                        </div>
-                                        <div class="price-block">
-                                            <span class="price">$@item.Price</span>
+                                            <div class="price-block">
+                                                <span class="price">$@item.Price</span>
 
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
                             }
 
                         </div>

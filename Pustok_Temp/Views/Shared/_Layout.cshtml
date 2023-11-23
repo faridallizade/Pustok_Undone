@@ -1,4 +1,6 @@
-﻿<!DOCTYPE html>
+﻿@using Pustok_Temp.ViewModels;
+@model HomeVM;
+<!DOCTYPE html>
 <html lang="zxx">
 
 
@@ -159,7 +161,7 @@
                                             <li class="cus-col-33">
                                                 <h3 class="menu-title"><a href="javascript:void(0)">Blog List </a></h3>
                                                 <ul class="mega-single-block">
-                                                    <!-- <li><a href="blog-list.html">Full Widh (Default)</a></li> -->
+                                            
                                                     <li><a href="blog-list-left-sidebar.html">left Sidebar</a></li>
                                                     <li><a href="blog-list-right-sidebar.html">Right Sidebar</a></li>
                                                 </ul>
@@ -198,116 +200,20 @@
                                         categories
                                     </a>
                                     <ul class="category-menu">
+                                             @foreach (var itemP in Model.categories.FindAll(c => c.ParentCategoryId == null))
+                                    {
+
                                         <li class="cat-item has-children">
-                                            <a href="#">Arts & Photography</a>
+                                            <a href="#">@itemP.Name</a>
                                             <ul class="sub-menu">
-                                                <li><a href="#">Bags & Cases</a></li>
-                                                <li><a href="#">Binoculars & Scopes</a></li>
-                                                <li><a href="#">Digital Cameras</a></li>
-                                                <li><a href="#">Film Photography</a></li>
-                                                <li><a href="#">Lighting & Studio</a></li>
+                                                @foreach (var item in Model.categories.FindAll(c => c.ParentCategoryId == itemP.Id))
+                                                {
+                                                    <li><a href="#">@item.Name</a></li>
+                                                }
                                             </ul>
                                         </li>
-                                        <li class="cat-item has-children mega-menu">
-                                            <a href="#">Biographies</a>
-                                            <ul class="sub-menu">
-                                                <li class="single-block">
-                                                    <h3 class="title">WHEEL SIMULATORS</h3>
-                                                    <ul>
-                                                        <li><a href="#">Bags & Cases</a></li>
-                                                        <li><a href="#">Binoculars & Scopes</a></li>
-                                                        <li><a href="#">Digital Cameras</a></li>
-                                                        <li><a href="#">Film Photography</a></li>
-                                                        <li><a href="#">Lighting & Studio</a></li>
-                                                    </ul>
-                                                </li>
-                                                <li class="single-block">
-                                                    <h3 class="title">WHEEL SIMULATORS</h3>
-                                                    <ul>
-                                                        <li><a href="#">Bags & Cases</a></li>
-                                                        <li><a href="#">Binoculars & Scopes</a></li>
-                                                        <li><a href="#">Digital Cameras</a></li>
-                                                        <li><a href="#">Film Photography</a></li>
-                                                        <li><a href="#">Lighting & Studio</a></li>
-                                                    </ul>
-                                                </li>
-                                                <li class="single-block">
-                                                    <h3 class="title">WHEEL SIMULATORS</h3>
-                                                    <ul>
-                                                        <li><a href="#">Bags & Cases</a></li>
-                                                        <li><a href="#">Binoculars & Scopes</a></li>
-                                                        <li><a href="#">Digital Cameras</a></li>
-                                                        <li><a href="#">Film Photography</a></li>
-                                                        <li><a href="#">Lighting & Studio</a></li>
-                                                    </ul>
-                                                </li>
-                                                <li class="single-block">
-                                                    <h3 class="title">WHEEL SIMULATORS</h3>
-                                                    <ul>
-                                                        <li><a href="#">Bags & Cases</a></li>
-                                                        <li><a href="#">Binoculars & Scopes</a></li>
-                                                        <li><a href="#">Digital Cameras</a></li>
-                                                        <li><a href="#">Film Photography</a></li>
-                                                        <li><a href="#">Lighting & Studio</a></li>
-                                                    </ul>
-                                                </li>
-                                            </ul>
-                                        </li>
-                                        <li class="cat-item has-children">
-                                            <a href="#">Business & Money</a>
-                                            <ul class="sub-menu">
-                                                <li><a href="#">Brake Tools</a></li>
-                                                <li><a href="#">Driveshafts</a></li>
-                                                <li><a href="#">Emergency Brake</a></li>
-                                                <li><a href="#">Spools</a></li>
-                                            </ul>
-                                        </li>
-                                        <li class="cat-item has-children">
-                                            <a href="#">Calendars</a>
-                                            <ul class="sub-menu">
-                                                <li><a href="#">Brake Tools</a></li>
-                                                <li><a href="#">Driveshafts</a></li>
-                                                <li><a href="#">Emergency Brake</a></li>
-                                                <li><a href="#">Spools</a></li>
-                                            </ul>
-                                        </li>
-                                        <li class="cat-item has-children">
-                                            <a href="#">Children's Books</a>
-                                            <ul class="sub-menu">
-                                                <li><a href="#">Brake Tools</a></li>
-                                                <li><a href="#">Driveshafts</a></li>
-                                                <li><a href="#">Emergency Brake</a></li>
-                                                <li><a href="#">Spools</a></li>
-                                            </ul>
-                                        </li>
-                                        <li class="cat-item has-children">
-                                            <a href="#">Comics</a>
-                                            <ul class="sub-menu">
-                                                <li><a href="#">Brake Tools</a></li>
-                                                <li><a href="#">Driveshafts</a></li>
-                                                <li><a href="#">Emergency Brake</a></li>
-                                                <li><a href="#">Spools</a></li>
-                                            </ul>
-                                        </li>
-                                        <li class="cat-item"><a href="#">Perfomance Filters</a></li>
-                                        <li class="cat-item has-children">
-                                            <a href="#">Cookbooks</a>
-                                            <ul class="sub-menu">
-                                                <li><a href="#">Brake Tools</a></li>
-                                                <li><a href="#">Driveshafts</a></li>
-                                                <li><a href="#">Emergency Brake</a></li>
-                                                <li><a href="#">Spools</a></li>
-                                            </ul>
-                                        </li>
-                                        <li class="cat-item "><a href="#">Accessories</a></li>
-                                        <li class="cat-item "><a href="#">Education</a></li>
-                                        <li class="cat-item hidden-menu-item"><a href="#">Indoor Living</a></li>
-                                        <li class="cat-item">
-                                            <a href="#" class="js-expand-hidden-menu">
-                                                More
-                                                Categories
-                                            </a>
-                                        </li>
+                                        }
+                                      
                                     </ul>
                                 </div>
                             </nav>
