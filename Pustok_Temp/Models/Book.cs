@@ -9,6 +9,7 @@
         public int AuthorId { get; set; }
         public Author? Authors { get; set; }
         public List<Book_Img>? Bookimages { get; set; }
+        public IFormFile ImageFile { get; set; }
 
     }
 }
